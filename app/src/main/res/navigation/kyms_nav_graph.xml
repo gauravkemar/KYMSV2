@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kyms_nav_graph.xml"
+    app:startDestination="@id/supervisorFragment">
+
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.kemarport.kyms.fragments.main.AdminFragment"
+        android:label="AdminFragment" />
+    <fragment
+        android:id="@+id/supervisorFragment"
+        android:name="com.kemarport.kyms.fragments.main.SupervisorFragment"
+        android:label="SupervisorFragment">
+        <action
+            android:id="@+id/action_supervisorFragment_to_intercartingFragment"
+            app:destination="@id/intercartingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_supervisorFragment_to_vesselLoadingFragment"
+            app:destination="@id/vesselLoadingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_supervisorFragment_to_btsFragment"
+            app:destination="@id/btsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_supervisorFragment_to_bttFragment"
+            app:destination="@id/bttFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_supervisorFragment_to_packingListFragment"
+            app:destination="@id/packingListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/intercartingFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.IntercartingFragment"
+        android:label="IntercartingFragment" />
+    <fragment
+        android:id="@+id/vesselLoadingFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.VesselLoadingFragment"
+        android:label="VesselLoadingFragment" />
+    <fragment
+        android:id="@+id/packingListFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.PackingListFragment"
+        android:label="PackingListFragment" >
+        <action
+            android:id="@+id/action_packingListFragment_to_packingListDetailsFragment"
+            app:destination="@id/packingListDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/packingListDetailsFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.PackingListDetailsFragment"
+        android:label="PackingListDetailsFragment" >
+        <argument
+            android:name="packingId"
+            app:argType="integer" />
+        <argument
+            android:name="dispatchedRecord"
+            app:argType="integer" />
+        <argument
+            android:name="totalRecord"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockTallyFragment"
+        android:name="com.kemarport.kyms.fragments.operator.picker.StockTallyFragment"
+        android:label="StockTallyFragment">
+        <action
+            android:id="@+id/action_stockTallyFragment_to_ediDetailsFragment"
+            app:destination="@id/ediDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/operatorFragment"
+        android:name="com.kemarport.kyms.fragments.main.OperatorFragment"
+        android:label="OperatorFragment">
+        <action
+            android:id="@+id/action_operatorFragment_to_dropperFragment"
+            app:destination="@id/dropperFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_operatorFragment_to_pickerFragment"
+            app:destination="@id/pickerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/ediDetailsFragment"
+        android:name="com.kemarport.kyms.fragments.operator.picker.EdiDetailsFragment"
+        android:label="EdiDetailsFragment">
+        <argument
+            android:name="jobId"
+            app:argType="integer" />
+        <argument
+            android:name="rakeCode"
+            app:argType="string" />
+        <argument
+            android:name="createdDate"
+            app:argType="string" />
+        <argument
+            android:name="source"
+            app:argType="string" />
+        <argument
+            android:name="totalCoils"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/dropStorageFragment"
+        android:name="com.kemarport.kyms.fragments.operator.dropper.DropStorageFragment"
+        android:label="StockEntryFragment" />
+    <fragment
+        android:id="@+id/dropperFragment"
+        android:name="com.kemarport.kyms.fragments.operator.dropper.DropperFragment"
+        android:label="DropperFragment">
+        <action
+            android:id="@+id/action_dropperFragment_to_dropStorageFragment"
+            app:destination="@id/dropStorageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dropperFragment_to_dropBerthFragment"
+            app:destination="@id/dropBerthFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dropperFragment_to_loadBttProductsFragment"
+            app:destination="@id/loadBttProductsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickerFragment"
+        android:name="com.kemarport.kyms.fragments.operator.picker.PickerFragment"
+        android:label="PickerFragment">
+        <action
+            android:id="@+id/action_pickerFragment_to_pickupRailFragment"
+            app:destination="@id/pickupRailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_pickerFragment_to_pickupStorageFragment"
+            app:destination="@id/pickupStorageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_pickerFragment_to_stockTallyFragment"
+            app:destination="@id/stockTallyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_pickerFragment_to_stockTallyWoAsnFragment"
+            app:destination="@id/stockTallyWoAsn"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickupRailFragment"
+        android:name="com.kemarport.kyms.fragments.operator.picker.PickupRailFragment"
+        android:label="PickupRailFragment" />
+    <fragment
+        android:id="@+id/pickupStorageFragment"
+        android:name="com.kemarport.kyms.fragments.operator.picker.PickupStorageFragment"
+        android:label="PickupStorageFragment" />
+    <fragment
+        android:id="@+id/dropBerthFragment"
+        android:name="com.kemarport.kyms.fragments.operator.dropper.DropBerthFragment"
+        android:label="DropBerthFragment" />
+    <fragment
+        android:id="@+id/btsFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.BtsFragment"
+        android:label="BtsFragment" />
+    <fragment
+        android:id="@+id/bttFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.BttFragment"
+        android:label="BttFragment" />
+    <fragment
+        android:id="@+id/loadBttProductsFragment"
+        android:name="com.kemarport.kyms.fragments.operator.dropper.LoadBttProductsFragment"
+        android:label="LoadBttProductsFragment" />
+    <fragment
+        android:id="@+id/stockTallyWoAsn"
+        android:name="com.kemarport.kyms.fragments.operator.picker.StockTallyWoAsn"
+        android:label="StockTallyWoAsn">
+        <action
+            android:id="@+id/action_stockTallyWoAsn_to_ediDetailsFragment"
+            app:destination="@id/ediDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+</navigation>

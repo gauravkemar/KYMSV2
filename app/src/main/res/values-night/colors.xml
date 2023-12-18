@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--    Material 3 Colors-->
+    <color name="md_theme_primary">#FABD00</color>
+    <color name="md_theme_onPrimary">#3F2E00</color>
+    <color name="md_theme_primaryContainer">#5B4300</color>
+    <color name="md_theme_onPrimaryContainer">#FFDF9E</color>
+    <color name="md_theme_secondary">#E5C44A</color>
+    <color name="md_theme_onSecondary">#3B2F00</color>
+    <color name="md_theme_secondaryContainer">#554500</color>
+    <color name="md_theme_onSecondaryContainer">#FFE178</color>
+    <color name="md_theme_tertiary">#FFB865</color>
+    <color name="md_theme_onTertiary">#482A00</color>
+    <color name="md_theme_tertiaryContainer">#663D00</color>
+    <color name="md_theme_onTertiaryContainer">#FFDDBA</color>
+    <color name="md_theme_error">#FFB4AB</color>
+    <color name="md_theme_errorContainer">#93000A</color>
+    <color name="md_theme_onError">#690005</color>
+    <color name="md_theme_onErrorContainer">#FFDAD6</color>
+    <color name="md_theme_background">#1E1B16</color>
+    <color name="md_theme_onBackground">#E9E1D8</color>
+    <color name="md_theme_surface">#1E1B16</color>
+    <color name="md_theme_onSurface">#E9E1D8</color>
+    <color name="md_theme_surfaceVariant">#4D4639</color>
+    <color name="md_theme_onSurfaceVariant">#D0C5B4</color>
+    <color name="md_theme_outline">#998F80</color>
+    <color name="md_theme_inverseOnSurface">#1E1B16</color>
+    <color name="md_theme_inverseSurface">#E9E1D8</color>
+    <color name="md_theme_inversePrimary">#FFC107</color>
+    <color name="md_theme_shadow">#000000</color>
+    <color name="md_theme_surfaceTint">#FABD00</color>
+    <color name="md_theme_outlineVariant">#4D4639</color>
+    <color name="md_theme_scrim">#000000</color>
+</resources>

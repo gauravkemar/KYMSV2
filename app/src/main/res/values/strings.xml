@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">KYMS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username"><b>Username</b></string>
+    <string name="password"><b>Password</b></string>
+
+    <string-array name="berth_array">
+        <item>Berth No. 5</item>
+        <item>Berth No. 10</item>
+    </string-array>
+</resources>
