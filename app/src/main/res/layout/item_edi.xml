@@ -26,9 +26,10 @@
                 android:id="@+id/ivRakeCode"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/rake_icon" />
+                tools:src="@drawable/cargo_ship" />
 
             <TextView
                 android:id="@+id/tvDate"

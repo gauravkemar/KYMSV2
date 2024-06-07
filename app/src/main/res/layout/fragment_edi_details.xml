@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.operator.picker.EdiDetailsFragment">
+        tools:context=".fragments.operator.export.picker.EdiDetailsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl1"

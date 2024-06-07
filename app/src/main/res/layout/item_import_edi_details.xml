@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1." />
+
+            <TextView
+                android:id="@+id/tvBatchNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batch No:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCount" />
+
+            <TextView
+                android:id="@+id/tvShipTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ship to:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBatchNoValue" />
+
+            <TextView
+                android:id="@+id/tvJSWGrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port Of Discharge:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvShipToValue" />
+
+            <TextView
+                android:id="@+id/tvRakeRefNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rake Ref No:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvJSWGradeValue" />
+
+            <TextView
+                android:id="@+id/tvBatchNoValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvBatchNo"
+                tools:text="34gjhg34534" />
+
+            <TextView
+                android:id="@+id/tvShipToValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:minLines="1"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvShipTo"
+                app:layout_constraintTop_toBottomOf="@id/tvBatchNoValue"
+                tools:text="NASTROFER SPA" />
+
+            <TextView
+                android:id="@+id/tvJSWGradeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvShipToValue"
+                tools:text="CEX212" />
+
+            <TextView
+                android:id="@+id/tvRakeRefNoValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvJSWGradeValue"
+                tools:text="sdfsdfsdfsd" />
+
+            <!--<TextView
+                android:id="@+id/tvProductStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Status:"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRakeRefNo" />-->
+
+            <!--<TextView
+                android:id="@+id/tvProductStatusValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:minLines="1"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvProductStatus"
+                app:layout_constraintTop_toBottomOf="@id/tvRakeRefNoValue"
+                tools:text="ToGet" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -24,19 +24,23 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.kemarport.kyms.R
 import com.kemarport.kyms.databinding.ActivityFragmentHostBinding
 import com.kemarport.kyms.fragments.main.SupervisorFragment
-import com.kemarport.kyms.fragments.operator.dropper.DropBerthFragment
-import com.kemarport.kyms.fragments.operator.dropper.DropStorageFragment
-import com.kemarport.kyms.fragments.operator.dropper.LoadBttProductsFragment
-import com.kemarport.kyms.fragments.operator.picker.EdiDetailsFragment
-import com.kemarport.kyms.fragments.operator.picker.PickupRailFragment
-import com.kemarport.kyms.fragments.operator.picker.PickupStorageFragment
-import com.kemarport.kyms.fragments.supervisor.*
-import com.kemarport.kyms.helper.Constants
+import com.kemarport.kyms.fragments.operator.export.dropper.DropBerthFragment
+import com.kemarport.kyms.fragments.operator.export.dropper.DropStorageFragment
+import com.kemarport.kyms.fragments.operator.export.dropper.LoadBttProductsFragment
+import com.kemarport.kyms.fragments.operator.export.picker.EdiDetailsFragment
+import com.kemarport.kyms.fragments.operator.export.picker.PickupRailFragment
+import com.kemarport.kyms.fragments.operator.export.picker.PickupStorageFragment
+import com.kemarport.kyms.fragments.operator.importupdate.importpicker.ImportEditDetailsFragment
+import com.kemarport.kyms.fragments.supervisor.export.BtsFragment
+import com.kemarport.kyms.fragments.supervisor.export.BttFragment
+import com.kemarport.kyms.fragments.supervisor.export.IntercartingFragment
+import com.kemarport.kyms.fragments.supervisor.export.PackingListDetailsFragment
+import com.kemarport.kyms.fragments.supervisor.export.VesselLoadingFragment
 import com.kemarport.kyms.helper.Resource
 import com.kemarport.kyms.helper.SessionManager
 import com.kemarport.kyms.repository.KYMSRepository
-import com.kemarport.kyms.viewmodel.FragmentHostVMProviderFactory
-import com.kemarport.kyms.viewmodel.FragmentHostViewModel
+import com.kemarport.kyms.viewmodel.export.FragmentHostVMProviderFactory
+import com.kemarport.kyms.viewmodel.export.FragmentHostViewModel
 import com.symbol.emdk.EMDKManager
 import com.symbol.emdk.EMDKResults
 import com.symbol.emdk.barcode.*
@@ -105,16 +109,19 @@ class FragmentHostActivity : AppCompatActivity(), EMDKManager.EMDKListener, Scan
         jwtToken = userDetails["jwtToken"]
         when (roleName) {
             "Supervisor" -> {
-                navGraph.setStartDestination(R.id.supervisorFragment)
+                navGraph.setStartDestination(R.id.supervisorMainOptionsFragment)
             }
             "Operator" -> {
-                navGraph.setStartDestination(R.id.operatorFragment)
+                navGraph.setStartDestination(R.id.operatorMainOptionsFragment)
             }
             "Admin" -> {
                 navGraph.setStartDestination(R.id.adminFragment)
             }
-            "SuperAdmin" -> {
+          /*  "SuperAdmin" -> {
                 navGraph.setStartDestination(R.id.adminFragment)
+            }*/
+            "SuperAdmin" -> {
+                navGraph.setStartDestination(R.id.operatorMainOptionsFragment)
             }
             else -> {
 
@@ -283,6 +290,9 @@ class FragmentHostActivity : AppCompatActivity(), EMDKManager.EMDKListener, Scan
                     foregroundFragment.setBarcode(dataStr)
                 }
                 is PackingListDetailsFragment -> {
+                    foregroundFragment.setBarcode(dataStr)
+                }
+                is ImportEditDetailsFragment -> {
                     foregroundFragment.setBarcode(dataStr)
                 }
             }

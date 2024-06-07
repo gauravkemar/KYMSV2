@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.operator.export.picker.EdiDetailsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ImportCl1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/md_theme_primary"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@id/ImportCl2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.175"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/ImportTvFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Found:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ImportTvPending"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ImportTvPending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pending:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ImportTvTotal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ImportTvFound" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/ImportTvPending" />
+
+            <TextView
+                android:id="@+id/ImportTvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Total:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ImportTvPending" />
+
+            <TextView
+                android:id="@+id/ImportTvFoundValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ImportTvPendingValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="174" />
+
+            <TextView
+                android:id="@+id/ImportTvPendingValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ImportTvTotalValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ImportTvFoundValue"
+                tools:text="10" />
+
+            <TextView
+                android:id="@+id/ImportTvTotalValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ImportTvPendingValue"
+                tools:text="184" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ImportCl2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ImportCl1">
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ImportRvEdiDetails"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/ImportBtnSetBarcode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_edi_details" />
+
+            <TextView
+                android:id="@+id/ImportTvEmptyList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please press trigger to\n start scanning barcodes."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/ImportRvEdiDetails"
+                app:layout_constraintEnd_toEndOf="@id/ImportRvEdiDetails"
+                app:layout_constraintStart_toStartOf="@id/ImportRvEdiDetails"
+                app:layout_constraintTop_toTopOf="@id/ImportRvEdiDetails" />
+
+            <ProgressBar
+                android:id="@+id/ImportProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/ImportRvEdiDetails"
+                app:layout_constraintEnd_toEndOf="@id/ImportRvEdiDetails"
+                app:layout_constraintStart_toStartOf="@id/ImportRvEdiDetails"
+                app:layout_constraintTop_toTopOf="@id/ImportRvEdiDetails" />
+
+            <Button
+                android:id="@+id/ImportBtnSetBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:onClick="@{listener::onClick}"
+                android:text="Set Barcode"
+                android:textAllCaps="true"
+                android:theme="@style/AppTheme"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ImportFloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="@color/md_theme_primary"
+                app:borderWidth="0dp"
+                app:elevation="6dp"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

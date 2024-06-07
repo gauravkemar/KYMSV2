@@ -13,14 +13,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.kemarport.kyms.R
 import com.kemarport.kyms.databinding.ActivityLoginBinding
-import com.kemarport.kyms.helper.Constants
 import com.kemarport.kyms.helper.Resource
 import com.kemarport.kyms.helper.SessionManager
-import com.kemarport.kyms.models.login.LoginRequest
-import com.kemarport.kyms.models.login.LoginResponse
+import com.kemarport.kyms.models.export.login.LoginRequest
 import com.kemarport.kyms.repository.KYMSRepository
-import com.kemarport.kyms.viewmodel.LoginViewModel
-import com.kemarport.kyms.viewmodel.LoginViewModelProviderFactory
+import com.kemarport.kyms.viewmodel.export.LoginViewModel
+import com.kemarport.kyms.viewmodel.export.LoginViewModelProviderFactory
 import es.dmoral.toasty.Toasty
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -102,7 +100,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                             if (username == "admin" && password == "Pass@123") {
                                 logAdminIn(binding)
                             } else {
-                                val loginRequest = LoginRequest(password, username)
+                                val loginRequest =
+                                    LoginRequest(
+                                        password,
+                                        username
+                                    )
                                 viewModel!!.userLogin(loginRequest, baseUrl)
                             }
                         }
@@ -117,7 +119,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun logUserIn(binding: ActivityLoginBinding, loginResponse: LoginResponse) {
+    private fun logUserIn(binding: ActivityLoginBinding, loginResponse: com.kemarport.kyms.models.export.login.LoginResponse) {
         val username = binding.etUsername.text?.trim().toString()
         val password = binding.etPassword.text?.trim().toString()
         val roleName = loginResponse.roleName

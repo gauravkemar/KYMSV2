@@ -22,8 +22,6 @@ class OperatorFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentOperatorBinding? = null
     private val TAG = "OperatorFragment"
 
-    // This property is only valid between onCreateView and
-// onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -39,7 +37,7 @@ class OperatorFragment : Fragment(), View.OnClickListener {
             (activity as FragmentHostActivity).findViewById<Toolbar>(R.id.tbFragmentHostActivity)
         toolbar?.let {
             val titleTextView = it.findViewById<TextView>(R.id.tvToolbarTitle)
-            titleTextView.text = getString(R.string.app_name)
+            titleTextView.text ="Import Operator"
         }
 
         return view
@@ -47,9 +45,6 @@ class OperatorFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val menuHost: MenuHost = requireActivity()
-        setupMenu(menuHost)
     }
 
     override fun onDestroyView() {
@@ -72,56 +67,5 @@ class OperatorFragment : Fragment(), View.OnClickListener {
                 }
             }
         }
-    }
-
-    private fun setupMenu(menuHost: MenuHost) {
-        menuHost.addMenuProvider(object : MenuProvider {
-            override fun onPrepareMenu(menu: Menu) {
-                // Handle for example visibility of menu items
-            }
-
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.menu_logout, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                // Validate and handle the selected menu item
-                when (menuItem.itemId) {
-                    R.id.miLogout -> {
-                        showDialog()
-                    }
-                    android.R.id.home -> {
-                        (activity as FragmentHostActivity).onBackPressed()
-                    }
-                }
-                return true
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-    }
-
-    private fun showDialog() {
-        var alertDialog: AlertDialog? = null
-        val builder = AlertDialog.Builder(activity as FragmentHostActivity)
-            .setTitle("Log Out")
-            .setMessage("Are you sure?")
-            .setIcon(R.drawable.ic_logout)
-            .setPositiveButton("Yes") { dialogInterface, which ->
-                logUserOut()
-            }
-            .setNegativeButton("No") { dialogInterface, which ->
-                alertDialog?.dismiss()
-            }
-        alertDialog = builder.create()
-        alertDialog.setCancelable(true)
-        alertDialog.show()
-    }
-
-    private fun logUserOut() {
-        val sessionManager = SessionManager(activity as FragmentHostActivity)
-        sessionManager.logoutUser()
-        Intent(activity, LoginActivity::class.java).apply {
-            startActivity(this)
-        }
-        activity?.finish()
     }
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/kyms_nav_graph.xml"
-    app:startDestination="@id/supervisorFragment">
+    app:startDestination="@id/supervisorMainOptionsFragment">
 
     <fragment
         android:id="@+id/adminFragment"
@@ -14,22 +14,8 @@
         android:name="com.kemarport.kyms.fragments.main.SupervisorFragment"
         android:label="SupervisorFragment">
         <action
-            android:id="@+id/action_supervisorFragment_to_intercartingFragment"
-            app:destination="@id/intercartingFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
             android:id="@+id/action_supervisorFragment_to_vesselLoadingFragment"
             app:destination="@id/vesselLoadingFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_supervisorFragment_to_btsFragment"
-            app:destination="@id/btsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
@@ -47,19 +33,33 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_supervisorFragment_to_intercartingFragment"
+            app:destination="@id/intercartingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_supervisorFragment_to_btsFragment"
+            app:destination="@id/btsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/intercartingFragment"
-        android:name="com.kemarport.kyms.fragments.supervisor.IntercartingFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.export.IntercartingFragment"
         android:label="IntercartingFragment" />
     <fragment
         android:id="@+id/vesselLoadingFragment"
-        android:name="com.kemarport.kyms.fragments.supervisor.VesselLoadingFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.export.VesselLoadingFragment"
         android:label="VesselLoadingFragment" />
     <fragment
         android:id="@+id/packingListFragment"
-        android:name="com.kemarport.kyms.fragments.supervisor.PackingListFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.export.PackingListFragment"
         android:label="PackingListFragment" >
         <action
             android:id="@+id/action_packingListFragment_to_packingListDetailsFragment"
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/packingListDetailsFragment"
-        android:name="com.kemarport.kyms.fragments.supervisor.PackingListDetailsFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.export.PackingListDetailsFragment"
         android:label="PackingListDetailsFragment" >
         <argument
             android:name="packingId"
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/stockTallyFragment"
-        android:name="com.kemarport.kyms.fragments.operator.picker.StockTallyFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.picker.StockTallyFragment"
         android:label="StockTallyFragment">
         <action
             android:id="@+id/action_stockTallyFragment_to_ediDetailsFragment"
@@ -96,15 +96,15 @@
         android:name="com.kemarport.kyms.fragments.main.OperatorFragment"
         android:label="OperatorFragment">
         <action
-            android:id="@+id/action_operatorFragment_to_dropperFragment"
-            app:destination="@id/dropperFragment"
+            android:id="@+id/action_operatorFragment_to_pickerFragment"
+            app:destination="@id/pickerFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_operatorFragment_to_pickerFragment"
-            app:destination="@id/pickerFragment"
+            android:id="@+id/action_operatorFragment_to_dropperFragment"
+            app:destination="@id/dropperFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
@@ -112,7 +112,7 @@
     </fragment>
     <fragment
         android:id="@+id/ediDetailsFragment"
-        android:name="com.kemarport.kyms.fragments.operator.picker.EdiDetailsFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.picker.EdiDetailsFragment"
         android:label="EdiDetailsFragment">
         <argument
             android:name="jobId"
@@ -132,11 +132,11 @@
     </fragment>
     <fragment
         android:id="@+id/dropStorageFragment"
-        android:name="com.kemarport.kyms.fragments.operator.dropper.DropStorageFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.dropper.DropStorageFragment"
         android:label="StockEntryFragment" />
     <fragment
         android:id="@+id/dropperFragment"
-        android:name="com.kemarport.kyms.fragments.operator.dropper.DropperFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.dropper.DropperFragment"
         android:label="DropperFragment">
         <action
             android:id="@+id/action_dropperFragment_to_dropStorageFragment"
@@ -162,7 +162,7 @@
     </fragment>
     <fragment
         android:id="@+id/pickerFragment"
-        android:name="com.kemarport.kyms.fragments.operator.picker.PickerFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.picker.PickerFragment"
         android:label="PickerFragment">
         <action
             android:id="@+id/action_pickerFragment_to_pickupRailFragment"
@@ -195,31 +195,31 @@
     </fragment>
     <fragment
         android:id="@+id/pickupRailFragment"
-        android:name="com.kemarport.kyms.fragments.operator.picker.PickupRailFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.picker.PickupRailFragment"
         android:label="PickupRailFragment" />
     <fragment
         android:id="@+id/pickupStorageFragment"
-        android:name="com.kemarport.kyms.fragments.operator.picker.PickupStorageFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.picker.PickupStorageFragment"
         android:label="PickupStorageFragment" />
     <fragment
         android:id="@+id/dropBerthFragment"
-        android:name="com.kemarport.kyms.fragments.operator.dropper.DropBerthFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.dropper.DropBerthFragment"
         android:label="DropBerthFragment" />
     <fragment
         android:id="@+id/btsFragment"
-        android:name="com.kemarport.kyms.fragments.supervisor.BtsFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.export.BtsFragment"
         android:label="BtsFragment" />
     <fragment
         android:id="@+id/bttFragment"
-        android:name="com.kemarport.kyms.fragments.supervisor.BttFragment"
+        android:name="com.kemarport.kyms.fragments.supervisor.export.BttFragment"
         android:label="BttFragment" />
     <fragment
         android:id="@+id/loadBttProductsFragment"
-        android:name="com.kemarport.kyms.fragments.operator.dropper.LoadBttProductsFragment"
+        android:name="com.kemarport.kyms.fragments.operator.export.dropper.LoadBttProductsFragment"
         android:label="LoadBttProductsFragment" />
     <fragment
         android:id="@+id/stockTallyWoAsn"
-        android:name="com.kemarport.kyms.fragments.operator.picker.StockTallyWoAsn"
+        android:name="com.kemarport.kyms.fragments.operator.export.picker.StockTallyWoAsn"
         android:label="StockTallyWoAsn">
         <action
             android:id="@+id/action_stockTallyWoAsn_to_ediDetailsFragment"
@@ -229,4 +229,87 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/supervisorMainOptionsFragment"
+        android:name="com.kemarport.kyms.fragments.main.SupervisorMainOptionsFragment"
+        android:label="fragment_supervisor_main_options"
+        tools:layout="@layout/fragment_supervisor_main_options" >
+        <action
+            android:id="@+id/action_supervisorMainOptionsFragment_to_supervisorFragment2"
+            app:destination="@id/supervisorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/operatorMainOptionsFragment"
+        android:name="com.kemarport.kyms.fragments.main.OperatorMainOptionsFragment"
+        android:label="fragment_operator_main_options"
+        tools:layout="@layout/fragment_operator_main_options" >
+        <action
+            android:id="@+id/action_operatorMainOptionsFragment_to_operatorFragment"
+            app:destination="@id/operatorFragment" />
+        <action
+            android:id="@+id/action_operatorMainOptionsFragment_to_importOperatorFragment"
+            app:destination="@id/importOperatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/importOperatorFragment"
+        android:name="com.kemarport.kyms.fragments.main.ImportOperatorFragment"
+        android:label="ImportOperatorFragment" >
+        <action
+            android:id="@+id/action_importOperatorFragment_to_importPickerFragment"
+            app:destination="@id/importPickerFragment" />
+        <action
+            android:id="@+id/action_importOperatorFragment_to_importDropperFragment"
+            app:destination="@id/importDropperFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/importPickerFragment"
+        android:name="com.kemarport.kyms.fragments.operator.importupdate.importpicker.ImportPickerFragment"
+        android:label="ImportPickerFragment" >
+        <action
+            android:id="@+id/action_importPickerFragment_to_importStockTallyFragment"
+            app:destination="@id/importStockTallyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/importStockTallyFragment"
+        android:name="com.kemarport.kyms.fragments.operator.importupdate.importpicker.ImportStockTallyFragment"
+        android:label="ImportStockTallyFragment" >
+
+        <action
+            android:id="@+id/action_importStockTallyFragment_to_importEditDetailsFragment"
+            app:destination="@id/importEditDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/importEditDetailsFragment"
+        android:name="com.kemarport.kyms.fragments.operator.importupdate.importpicker.ImportEditDetailsFragment"
+        android:label="fragment_import_edit_details"
+        tools:layout="@layout/fragment_import_edit_details"
+        >
+        <argument
+            android:name="importJobMasterId"
+            app:argType="integer" />
+      <!--  <argument
+            android:name="rakeCode"
+            app:argType="string" />
+        <argument
+            android:name="createdDate"
+            app:argType="string" />
+        <argument
+            android:name="source"
+            app:argType="string" />
+        <argument
+            android:name="totalCoils"
+            app:argType="integer" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/importDropperFragment"
+        android:name="com.kemarport.kyms.fragments.operator.importupdate.importdropper.ImportDropperFragment"
+        android:label="ImportDropperFragment" >
+        <action
+            android:id="@+id/action_importDropperFragment_to_importDropStorageFragment"
+            app:destination="@id/importDropStorageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/importDropStorageFragment"
+        android:name="com.kemarport.kyms.fragments.operator.importupdate.importdropper.ImportDropStorageFragment"
+        android:label="ImportDropStorageFragment" />
 </navigation>

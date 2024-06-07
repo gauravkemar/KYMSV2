@@ -1,22 +1,25 @@
 package com.kemarport.kyms.api
 
-import com.kemarport.kyms.models.DelayedEDI.DelayedEDIResponse
-import com.kemarport.kyms.models.EDI.EdiResponse
-import com.kemarport.kyms.models.generalrequestandresponse.BatchNoListResponse
-import com.kemarport.kyms.models.generalrequestandresponse.GeneralRequestBerthLocation
-import com.kemarport.kyms.models.generalrequestandresponse.GeneralRequestLocationId
-import com.kemarport.kyms.models.generalrequestandresponse.GeneralResponse
-import com.kemarport.kyms.models.itemscanning.ItemScanningResponse
-import com.kemarport.kyms.models.loadedCoils.CurrentLoadingResponse
-import com.kemarport.kyms.models.locations.LocationsResponse
-import com.kemarport.kyms.models.login.LoginRequest
-import com.kemarport.kyms.models.login.LoginResponse
-import com.kemarport.kyms.models.packingList.DischargePortResponse
-import com.kemarport.kyms.models.packingList.PackingListResponse
-import com.kemarport.kyms.models.unloadedcoils.CurrentScanningResponse
-import com.kemarport.kyms.models.vesselandintercarting.VesselAndIntercartingRequest
-import com.kemarport.kyms.models.withoutasn.CreateJobMasterRequest
-import com.kemarport.kyms.models.withoutasn.CreateJobMasterResponse
+import com.kemarport.kyms.helper.Constants
+import com.kemarport.kyms.models.export.DelayedEDI.DelayedEDIResponse
+import com.kemarport.kyms.models.export.EDI.EdiResponse
+import com.kemarport.kyms.models.export.generalrequestandresponse.BatchNoListResponse
+import com.kemarport.kyms.models.export.generalrequestandresponse.GeneralRequestBerthLocation
+import com.kemarport.kyms.models.export.generalrequestandresponse.GeneralRequestLocationId
+import com.kemarport.kyms.models.export.generalrequestandresponse.GeneralResponse
+import com.kemarport.kyms.models.export.itemscanning.ItemScanningResponse
+import com.kemarport.kyms.models.export.loadedCoils.CurrentLoadingResponse
+import com.kemarport.kyms.models.export.locations.LocationsResponse
+import com.kemarport.kyms.models.export.login.LoginRequest
+import com.kemarport.kyms.models.export.login.LoginResponse
+import com.kemarport.kyms.models.export.packingList.DischargePortResponse
+import com.kemarport.kyms.models.export.packingList.PackingListResponse
+import com.kemarport.kyms.models.export.unloadedcoils.CurrentScanningResponse
+import com.kemarport.kyms.models.export.vesselandintercarting.VesselAndIntercartingRequest
+import com.kemarport.kyms.models.export.withoutasn.CreateJobMasterRequest
+import com.kemarport.kyms.models.export.withoutasn.CreateJobMasterResponse
+import com.kemarport.kyms.models.importupdate.GetMasterMobileResponse
+import com.kemarport.kyms.models.importupdate.importstocktally.GetReceivedProductResponse
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -136,7 +139,7 @@ interface KYMS_API {
         @Header("Authorization")
         token: String?,
         @Body
-        generalRequestLocationId: GeneralRequestLocationId
+        generalRequestLocationId:GeneralRequestLocationId
     ): Response<GeneralResponse>
 
     @POST("Packing/StockToBerth")
@@ -170,7 +173,7 @@ interface KYMS_API {
         @Header("Authorization")
         token: String?,
         @Body
-        generalRequestLocationId: GeneralRequestLocationId
+        generalRequestLocationId:GeneralRequestLocationId
     ): Response<GeneralResponse>
 
     @GET("BTT/MarkedBTT")
@@ -230,6 +233,58 @@ interface KYMS_API {
         @Query("packingId")
         vehicleNumber: Int?
     ): Response<DischargePortResponse>
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    //import
+
+    @GET( Constants.GET_JOB_MASTER_MOBILE)
+    suspend fun getJobMasterMobile(
+        @Header("Authorization")
+        token: String?,
+        @Query("skiprow")
+        skiprow: Int?,
+        @Query("rowSize")
+        rowSize: Int?,
+    ): Response<GetMasterMobileResponse>
+
+    @GET( Constants.GET_JOB_DETAILS_MOBILE)
+    suspend fun getJobDetailsMobile(
+        @Header("Authorization")
+        token: String?,
+        @Query("importJobMasterId")
+        importJobMasterId: Int?,
+        @Query("skiprow")
+        skiprow: Int?,
+        @Query("rowSize")
+        rowSize: Int?,
+    ): Response<GetMasterMobileResponse>
+
+    @GET( Constants.GET_RECEIVED_PRODUCT)
+    suspend fun getReceivedProduct(
+        @Header("Authorization")
+        token: String?,
+        @Query("BatchNo")
+        BatchNo: String?,
+        @Query("LocationId")
+        LocationId: Int?,
+        @Query("Coordinate")
+        Coordinate: String?,
+    ): Response<GetMasterMobileResponse>
+
+    @GET( Constants.GET_STORED_PRODUCT)
+    suspend fun getStoredProduct(
+        @Header("Authorization")
+        token: String?,
+        @Query("BatchNo")
+        BatchNo: String?,
+        @Query("LocationId")
+        LocationId: Int?,
+        @Query("Coordinate")
+        Coordinate: String?,
+    ): Response<GetMasterMobileResponse>
+
+
 
 
 }

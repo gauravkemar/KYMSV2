@@ -1,11 +1,12 @@
 package com.kemarport.kyms.repository
 
 import com.kemarport.kyms.api.RetrofitInstance
-import com.kemarport.kyms.models.generalrequestandresponse.GeneralRequestBerthLocation
-import com.kemarport.kyms.models.generalrequestandresponse.GeneralRequestLocationId
-import com.kemarport.kyms.models.login.LoginRequest
-import com.kemarport.kyms.models.vesselandintercarting.VesselAndIntercartingRequest
-import com.kemarport.kyms.models.withoutasn.CreateJobMasterRequest
+import com.kemarport.kyms.models.export.generalrequestandresponse.GeneralRequestBerthLocation
+import com.kemarport.kyms.models.export.generalrequestandresponse.GeneralRequestLocationId
+import com.kemarport.kyms.models.export.login.LoginRequest
+import com.kemarport.kyms.models.export.vesselandintercarting.VesselAndIntercartingRequest
+import com.kemarport.kyms.models.export.withoutasn.CreateJobMasterRequest
+import retrofit2.http.Query
 
 class KYMSRepository {
 
@@ -151,5 +152,52 @@ class KYMSRepository {
         baseUrl: String,
         packingListId : Int
     ) = RetrofitInstance.api(baseUrl).dischargePortList(token,packingListId)
+
+    //////////////////////////////////////////////////
+
+    //import
+
+
+    suspend fun getJobMasterMobile(
+        token: String?,
+        baseUrl: String,
+        @Query("skiprow")
+        skiprow: Int?,
+        @Query("rowSize")
+        rowSize: Int?,
+    ) = RetrofitInstance.api(baseUrl).getJobMasterMobile(token,skiprow,rowSize)
+
+    suspend fun getJobDetailsMobile(
+        token: String?,
+        baseUrl: String,
+        @Query("importJobMasterId")
+        importJobMasterId: Int?,
+        @Query("skiprow")
+        skiprow: Int?,
+        @Query("rowSize")
+        rowSize: Int?,
+    ) = RetrofitInstance.api(baseUrl).getJobDetailsMobile(token,importJobMasterId,skiprow,rowSize)
+
+    suspend fun getReceivedProduct(
+        token: String?,
+        baseUrl: String,
+        @Query("BatchNo")
+        BatchNo: String?,
+        @Query("LocationId")
+        LocationId: Int?,
+        @Query("Coordinate")
+        Coordinate: String?,
+    ) = RetrofitInstance.api(baseUrl).getReceivedProduct(token,BatchNo,LocationId,Coordinate)
+
+    suspend fun getStoredProduct(
+        token: String?,
+        baseUrl: String,
+        @Query("BatchNo")
+        BatchNo: String?,
+        @Query("LocationId")
+        LocationId: Int?,
+        @Query("Coordinate")
+        Coordinate: String?,
+    ) = RetrofitInstance.api(baseUrl).getStoredProduct(token,BatchNo,LocationId,Coordinate)
 
 }
